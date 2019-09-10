@@ -1,0 +1,6 @@
+.DS_Store
+*.mp4
+*.m4v
+.keys
+.env
+.ccapi
