@@ -1,0 +1,49 @@
+1 - Return all fields for all records in primary key order.
+SELECT * FROM WeatherDB.dbo.Spokane2017
+
+2 - Return all records but include only the Month, Day and Record Low columns.
+SELECT month, day, reclo FROM WeatherDB.dbo.Spokane2017
+
+3 - Return all records but include only Month, Day and Average High columns. Make the column header for the Average Hi read “AverageHigh”.
+SELECT month, day, avghi as 'AverageHigh' FROM WeatherDB.dbo.Spokane2017
+
+4 - Return all records but include only Month, Day and Record Low for all rows with Record Lows below freezing (32)
+SELECT month, day, reclo FROM WeatherDB.dbo.Spokane2017
+WHERE reclo < 32
+
+5 - Modify the previous SELECT to include Record Lows below freezing but only for the month of January.
+SELECT month, day, reclo FROM WeatherDB.dbo.Spokane2017
+WHERE month = 1 AND reclo < 32
+
+6 - Sort the SELECT from problem 5 by Record Low ascending
+SELECT month, day, reclo FROM WeatherDB.dbo.Spokane2017
+WHERE month = 1 AND reclo < 32
+ORDER BY reclo
+
+7 - Design a SELECT that will tell me the date for the single coldest Mean (daily average) temperature (hint: top). Provide the Mean in your output and name it “Coldest”
+SELECT TOP 1 month, day, reclo as 'Coldest' FROM WeatherDB.dbo.Spokane2017
+ORDER BY reclo
+
+8 - Provide a SELECT to generate Month, Date, Sunrise and Sunset from December 31st to January 1st (backwards).
+SELECT month, day, sunrise, sunset FROM WeatherDB.dbo.Spokane2017
+ORDER BY month desc, day desc
+
+9 - Provide the name - namefirst, namelast and weight of all players weighing more than 200 lbs in ascending name order (last name then first name).
+SELECT namefirst, namelast, weight, (namelast + ', ' + namefirst) as 'FullName' FROM Baseball2015.dbo.Players
+WHERE weight > 200
+ORDER BY namelast, namefirst
+
+10 - Modify the previous problem. Add a height column displayed in feet rather than inches. Don’t forget a column header.
+SELECT namefirst, namelast, weight, (height / 12.0) as 'height', (namelast + ', ' + namefirst) as 'FullName' FROM Baseball2015.dbo.Players
+WHERE weight > 200
+ORDER BY namelast, namefirst
+
+11 - List the names and birth city of all players born in Washington State.
+SELECT (namelast + ', ' + namefirst) as 'name', birthcity FROM Baseball2015.dbo.Players
+WHERE birthstate = 'WA'
+ORDER BY namelast, namefirst
+
+12 - Modify the previous problem to show those born in Spokane, WA. Keep in mind there are more than one “Spokane” in the USA.
+SELECT (namelast + ', ' + namefirst) as 'name', birthcity FROM Baseball2015.dbo.Players
+WHERE birthstate = 'WA' AND birthcity = 'Spokane'
+ORDER BY namelast, namefirst

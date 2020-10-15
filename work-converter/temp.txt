@@ -1,0 +1,12 @@
+the Players table is related to the batting table by playerID (a player has a batting record for every year played)
+The Players table is related to the Fielding table by playerID (a player has a fielding record for each year played)
+The Players table is related to the HallOfFame table by playerID (some players have been inducted into the Hall Of Fame)
+The Fielding table is related to the Teams table by teamID (each entry includes the team the playerID played for)
+The Teams table is related to the TeamFranchises table by franID (I have no idea what a team franchise is)
+The Players table is related to the Pitching table by playerID (some players were pitchers)
+The Pitching table is related to the Teams table by teamID (each entry includes the team the playerID played for)
+The Players table is related to the Salaries table by playerID (a player had a salary while playing)
+The Salaries table is related to the Teams table by teamID (each entry includes the team the playerID played for)
+The Players table is related to the Managers table by playerID (some players were managers)
+The Managers table is related to the Teams table by teamID (each entry includes the team the playerID managed for)
+The BattingBackup table is related to the Teams table by teamID
